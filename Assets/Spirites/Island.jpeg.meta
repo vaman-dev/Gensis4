@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4f6b05fc5f1e817449e9683b6960a2f3
+guid: d3052c3630fea8e49bd914c30dc64a0f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6408059752730381280
-    second: WhatsApp Image 2025-02-10 at 20.11.41_0
+      213: -2207619908799101039
+    second: Island_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp Image 2025-02-10 at 20.11.41_0
+      name: Island_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ebc8fcc4600ee850800000000000000
-      internalID: 6408059752730381280
+      spriteID: 19703f0b365fc51e0800000000000000
+      internalID: -2207619908799101039
       vertices: []
       indices: 
       edges: []

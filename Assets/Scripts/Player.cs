@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     public float moveSpeed = 5f;
     private Animator animation;
+    public float delaytime = 2f; 
 
     void Start()
     {
