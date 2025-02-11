@@ -13,17 +13,20 @@ public class Player : MonoBehaviour
     public float jumpForce = 1f;
     private BoxCollider2D myFeetCollider;
     private bool isAlive = true;
+    private SpriteRenderer playerSpriteRenderer; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         Run();
+        flipSprite();
     }
 
     public void OnMove(InputValue value)
@@ -83,7 +86,9 @@ public class Player : MonoBehaviour
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
         if (playerHasHorizontalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
+            playerSpriteRenderer.flipX = rb.linearVelocity.x < 0;
+            // for the changing the direction using the linear velocity of the player 
+            // best method instead of the tranform.loaclscale 
         }
     }
 }

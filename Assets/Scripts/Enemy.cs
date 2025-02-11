@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
             // Flip enemy based on direction
            enemySpriteRenderer.flipX = directionToPlayer.x < 0;
             // if the direction of the player is less than 0 then the sprite will flip to the left
-t
+
         }
         else
         {
