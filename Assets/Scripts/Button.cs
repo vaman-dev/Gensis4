@@ -30,6 +30,15 @@ public class Button : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
-
+ public void Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
+     public void Options ()
+     {
+         Debug.Log("Options");
+      
+     }
 
 }

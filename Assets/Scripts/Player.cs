@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     void Run()
     {
-        rb.linearVelocity = new Vector2(move.x * moveSpeed, move.y * moveSpeed);
+        rb.linearVelocity = new Vector2(move.x * moveSpeed,0f);
         
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
 
