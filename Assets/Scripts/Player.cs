@@ -2,19 +2,23 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
+
 public class Player : MonoBehaviour
 {
-  
-   private Vector2 move;
+    private Vector2 move;
     private Rigidbody2D rb;
     public float moveSpeed = 5f;
     private Animator animation;
     public float delaytime = 2f; 
+    public float jumpForce = 1f;
+    private BoxCollider2D myFeetCollider;
+    private bool isAlive = true;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animation = GetComponent<Animator>();
+        myFeetCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -31,7 +35,7 @@ public class Player : MonoBehaviour
 
     void Run()
     {
-        rb.linearVelocity = new Vector2(move.x * moveSpeed,0f);
+        rb.linearVelocity = new Vector2(move.x * moveSpeed, rb.linearVelocity.y);
         
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
 
@@ -47,8 +51,7 @@ public class Player : MonoBehaviour
         }
     }
 
-
-     private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Gate"))
         {
@@ -62,5 +65,25 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(delaytime); 
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+
+    void OnJump(InputValue value)
+    {
+        if (!isAlive) { return; }
+        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        
+        if (value.isPressed)
+        {
+            rb.linearVelocity += new Vector2(0f, jumpForce);
+        }
+    }
+
+    void flipSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
+        if (playerHasHorizontalSpeed)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(rb.linearVelocity.x), 1f);
+        }
     }
 }

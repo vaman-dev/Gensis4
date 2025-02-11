@@ -12,7 +12,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Stone
     uniqueID: 1112722057
+    locked: 0
+  - name: Enemy
+    uniqueID: 2178218453
     locked: 0
   m_RenderingLayers:
   - Default
