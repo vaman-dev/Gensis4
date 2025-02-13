@@ -1259,7 +1259,53 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tiles - Beach_0: 6076413228260066321
+      Tiles - Beach_1: -8760414019104906232
+      Tiles - Beach_10: -5776645988776212839
+      Tiles - Beach_11: -5672851611366820090
+      Tiles - Beach_12: -8447462895979141125
+      Tiles - Beach_13: -7015222922690729522
+      Tiles - Beach_14: -6299026873962501556
+      Tiles - Beach_15: 1920710850903050969
+      Tiles - Beach_16: -2777361850702704493
+      Tiles - Beach_17: -3789852896161181094
+      Tiles - Beach_18: -4381955223976199788
+      Tiles - Beach_19: 695705125589484753
+      Tiles - Beach_2: -199703279752650167
+      Tiles - Beach_20: 7326477714156127939
+      Tiles - Beach_21: -7549394689866668649
+      Tiles - Beach_22: 3859391607920326212
+      Tiles - Beach_23: -424217508041498078
+      Tiles - Beach_24: -3501785509968325481
+      Tiles - Beach_25: 1359486433145782569
+      Tiles - Beach_26: -7769807558063344058
+      Tiles - Beach_27: -1803679260030989609
+      Tiles - Beach_28: -1852717787194792838
+      Tiles - Beach_29: 1553593116331604258
+      Tiles - Beach_3: 126112893798212610
+      Tiles - Beach_30: 7585686975842552183
+      Tiles - Beach_31: 1585872718570275832
+      Tiles - Beach_32: -5384042588902235304
+      Tiles - Beach_33: -8509979987429886121
+      Tiles - Beach_34: -2963002198708394722
+      Tiles - Beach_35: 1828107390948349999
+      Tiles - Beach_36: -5608413390083867163
+      Tiles - Beach_37: -4266386482800803042
+      Tiles - Beach_38: 8865193944008486200
+      Tiles - Beach_39: 2176728494131188817
+      Tiles - Beach_4: -1812935463897792892
+      Tiles - Beach_40: 1943240672477623692
+      Tiles - Beach_41: -849138581507702970
+      Tiles - Beach_42: -7048192278951891330
+      Tiles - Beach_43: -4398672909257501504
+      Tiles - Beach_44: -5676658405120023671
+      Tiles - Beach_45: 2147356051025077744
+      Tiles - Beach_5: 1217951285103974887
+      Tiles - Beach_6: 5991722968487574478
+      Tiles - Beach_7: -7485330713374539600
+      Tiles - Beach_8: 5171094075307388699
+      Tiles - Beach_9: -2034267589234459672
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

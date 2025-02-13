@@ -2,15 +2,36 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject bulletPrefab; // Assign the bullet prefab in the Inspector
+    public Transform firePoint; // Assign the fire point (empty GameObject where the bullet spawns)
+    public float bulletSpeed = 20f; // Speed of the bullet
+    public float fireRate = 0.5f; // Time between shots
+    public float destroyTime = 1f; // Time before bullet destroys itself
+    public Rigidbody2D playerRb; // Reference to the player's Rigidbody2D
 
-    // Update is called once per frame
+    private float nextFireTime = 0f;
+
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
+        {
+            Fire();
+            nextFireTime = Time.time + fireRate;
+        }
     }
+
+    void Fire()
+    {
+        Vector2 direction = playerRb.linearVelocity.normalized;
+        if (direction == Vector2.zero) direction = Vector2.right; // Default direction if player is idle
+        
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * bulletSpeed;
+        }
+        Destroy(bullet, destroyTime); // Destroy bullet after specified time
+    }
+
 }
