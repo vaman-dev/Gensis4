@@ -5,40 +5,46 @@ using UnityEngine.Video;
 
 public class Button : MonoBehaviour
 {
-    public VideoPlayer videoPlayer; 
-    public GameObject currentcanvas;
-    public GameObject VideoCanvas;
-    public float delaytime = 2f;
+    [SerializeField] private VideoPlayer videoPlayer;  
+    [SerializeField] private GameObject currentCanvas;
+    [SerializeField] private GameObject videoCanvas;
+    [SerializeField] private float delayTime = 2f;
+    [SerializeField] private AudioSource thunderAudio;
 
-    public void Start()
+    private void Start()
     {
-        VideoCanvas.SetActive(false);
-        videoPlayer = GetComponent<VideoPlayer>();
+        if (videoCanvas != null) videoCanvas.SetActive(false);
     }
 
     public void OnClick()
     {
         Debug.Log("Button Clicked");
-        currentcanvas.SetActive(false); 
-        VideoCanvas.SetActive(true);
-        videoPlayer.Play();
+
+        if (currentCanvas != null) currentCanvas.SetActive(false);
+        if (videoCanvas != null) videoCanvas.SetActive(true);
+        if (videoPlayer != null && !videoPlayer.isPlaying) videoPlayer.Play();
+        if (thunderAudio != null) thunderAudio.Play();
+
         StartCoroutine(LoadNextScene());
     }
-     IEnumerator LoadNextScene()
+
+    private IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(delaytime); 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        yield return new WaitForSeconds(delayTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
- public void Quit()
+
+    public void Quit()
     {
         Debug.Log("Quit");
-        Application.Quit();
+        
+            Application.Quit(); // Quit for built game
+        
     }
-     public void Options ()
-     {
-         Debug.Log("Options");
-      
-     }
 
+    public void Options()
+    {
+        Debug.Log("Options");
+        // Add options handling logic here
+    }
 }
