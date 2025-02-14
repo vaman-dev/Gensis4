@@ -8,50 +8,45 @@ public class Player : MonoBehaviour
     private Vector2 move;
     private Rigidbody2D rb;
     public float moveSpeed = 5f;
-    private Animator animation;
-    public float delaytime = 2f; 
-    public float jumpForce = 1f;
-    private BoxCollider2D myFeetCollider;
+    private Animator animator;
+    public float delayTime = 2f; 
+    public float jumpForce = 7f; 
+    public float torqueForce = 5f;
+    private BoxCollider2D feetCollider;
     private bool isAlive = true;
-    private SpriteRenderer playerSpriteRenderer; 
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animation = GetComponent<Animator>();
-        myFeetCollider = GetComponent<BoxCollider2D>();
-        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        feetCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        Run();
-        flipSprite();
+        if (isAlive)
+        {
+            Run();
+            FlipSprite();
+            ApplyTorque();
+            Fire(); // Call the fire function
+        }
     }
 
     public void OnMove(InputValue value)
     {
-        Vector2 moveInput = value.Get<Vector2>(); // the value of the input is stored in the vector accessing them
-        // giving them into the new move
-        move = new Vector2(moveInput.x, moveInput.y);
+        move = value.Get<Vector2>();
     }
 
     void Run()
     {
         rb.linearVelocity = new Vector2(move.x * moveSpeed, rb.linearVelocity.y);
         
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
-
-        if (playerHasHorizontalSpeed)
-        {
-            animation.SetBool("Idle", false);
-            animation.SetBool("Moving", true);
-        }
-        else
-        {
-            animation.SetBool("Idle", true);
-            animation.SetBool("Moving", false);
-        }
+        bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
+        animator.SetBool("Moving", isMoving);
+        animator.SetBool("Idle", !isMoving);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,36 +54,56 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Gate"))
         {
             Debug.Log("You have reached the gate");
-            StartCoroutine(LoadNextScene()); // Correct coroutine usage
+            StartCoroutine(LoadNextScene());
         }
     }
 
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(delaytime); 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        yield return new WaitForSeconds(delayTime); 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    void OnJump(InputValue value)
+    public void OnJump(InputValue value)
     {
-        if (!isAlive) { return; }
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        
+        if (!isAlive || !feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) return;
+
         if (value.isPressed)
         {
-            rb.linearVelocity += new Vector2(0f, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            animator.SetTrigger("Jump");
         }
     }
 
-    void flipSprite()
+    void ApplyTorque()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb.linearVelocity.x) > Mathf.Epsilon;
-        if (playerHasHorizontalSpeed)
+        // Apply torque only when the player is airborne
+        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
-            playerSpriteRenderer.flipX = rb.linearVelocity.x < 0;
-            // for the changing the direction using the linear velocity of the player 
-            // best method instead of the tranform.loaclscale 
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb.AddTorque(torqueForce);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.AddTorque(-torqueForce);
+            }
+        }
+    }
+
+    void FlipSprite()
+    {
+        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+        {
+            spriteRenderer.flipX = rb.linearVelocity.x < 0;
+        }
+    }
+
+    void Fire()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("fire");
         }
     }
 }
