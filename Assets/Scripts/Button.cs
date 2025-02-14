@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
     [SerializeField] private GameObject videoCanvas;
     [SerializeField] private float delayTime = 2f;
     [SerializeField] private AudioSource thunderAudio;
+    [SerializeField] private AudioSource startingAudio;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class Button : MonoBehaviour
         Debug.Log("Quit");
         
             Application.Quit(); // Quit for built game
-        
+    
     }
 
     public void Options()
