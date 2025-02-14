@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
             Run();
             FlipSprite();
             ApplyTorque();
+            fire();
         }
     }
 

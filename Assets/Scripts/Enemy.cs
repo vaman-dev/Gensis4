@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float detectionRange = 5f;
     private Animator enemyAnimator;
     private SpriteRenderer enemySpriteRenderer;
+    public AudioSource horrorAudio;
 
     void Start()
     {
@@ -31,6 +32,12 @@ public class Enemy : MonoBehaviour
             transform.position += (Vector3)directionToPlayer * speed * Time.deltaTime;
             enemyAnimator.SetBool("Moving", true);
             enemyAnimator.SetBool("Idle", false);
+            
+            // Play horror audio only if it's not already playing
+            if (!horrorAudio.isPlaying)
+            {
+                horrorAudio.Play();
+            }
 
             // Flip enemy sprite based on direction
             enemySpriteRenderer.flipX = directionToPlayer.x < 0;
@@ -39,6 +46,12 @@ public class Enemy : MonoBehaviour
         {
             enemyAnimator.SetBool("Moving", false);
             enemyAnimator.SetBool("Idle", true);
+            
+            // Pause the horror audio instead of stopping it immediately
+            if (horrorAudio.isPlaying)
+            {
+                horrorAudio.Pause();
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     private float nextFireTime;
     private bool facingRight = true;
     private Rigidbody2D playerRb;
+    public AudioSource shootAudio;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class Bullet : MonoBehaviour
 
     private void Fire()
     {
+        shootAudio.Play();
         Vector2 direction = facingRight ? Vector2.right : Vector2.left;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         
