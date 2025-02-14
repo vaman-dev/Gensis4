@@ -15,9 +15,7 @@ public class Player : MonoBehaviour
     private BoxCollider2D feetCollider;
     private bool isAlive = true;
     private SpriteRenderer spriteRenderer;
-
-   
-    
+    public AudioSource runAudio; // Added AudioSource for running sound
 
     void Start()
     {
@@ -34,7 +32,6 @@ public class Player : MonoBehaviour
             Run();
             FlipSprite();
             ApplyTorque();
-            fire(); // Call the Fire function
         }
     }
 
@@ -50,6 +47,16 @@ public class Player : MonoBehaviour
         bool isMoving = Mathf.Abs(rb.linearVelocity.x) > 0.1f;
         animator.SetBool("Moving", isMoving);
         animator.SetBool("Idle", !isMoving);
+        
+        // Play running audio if moving, stop if not
+        if (isMoving && !runAudio.isPlaying)
+        {
+            runAudio.Play();
+        }
+        else if (!isMoving)
+        {
+            runAudio.Stop();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -96,16 +103,6 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(rb.linearVelocity.x) > 0.1f) 
         {
             spriteRenderer.flipX = rb.linearVelocity.x < 0;
-        }
-    }
-
-    void fire()
-    {
-        if (Input.GetMouseButtonDown(0)) // Left Mouse Button
-        {
-            animator.SetTrigger("fire");
-
-           
         }
     }
 }
