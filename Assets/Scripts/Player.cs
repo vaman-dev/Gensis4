@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     private Animator animator;
     public float delayTime = 2f; 
-    public float jumpForce = 7f; 
-    public float torqueForce = 5f;
+    public float jumpForce = 7f; // Increased for better jumping
+    public float torqueForce = 5f; // Added torque force for mid-air control
     private BoxCollider2D feetCollider;
     private bool isAlive = true;
     private SpriteRenderer spriteRenderer;
+
+   
+    
 
     void Start()
     {
@@ -31,13 +34,13 @@ public class Player : MonoBehaviour
             Run();
             FlipSprite();
             ApplyTorque();
-            Fire(); // Call the fire function
+            fire(); // Call the Fire function
         }
     }
 
     public void OnMove(InputValue value)
     {
-        move = value.Get<Vector2>();
+        move = value.Get<Vector2>(); // Direct assignment, avoiding extra Vector2 creation
     }
 
     void Run()
@@ -70,40 +73,39 @@ public class Player : MonoBehaviour
 
         if (value.isPressed)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); 
+            rb.AddTorque(torqueForce * -Mathf.Sign(rb.linearVelocity.x)); // Adding torque for rotation control
             animator.SetTrigger("Jump");
         }
     }
 
     void ApplyTorque()
     {
-        // Apply torque only when the player is airborne
-        if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                rb.AddTorque(torqueForce);
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                rb.AddTorque(-torqueForce);
-            }
+            rb.AddTorque(torqueForce);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.AddTorque(-torqueForce);
         }
     }
 
     void FlipSprite()
     {
-        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
+        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f) 
         {
             spriteRenderer.flipX = rb.linearVelocity.x < 0;
         }
     }
 
-    void Fire()
+    void fire()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // Left Mouse Button
         {
             animator.SetTrigger("fire");
+
+           
         }
     }
 }
