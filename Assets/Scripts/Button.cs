@@ -15,6 +15,7 @@ public class Button : MonoBehaviour
     private void Start()
     {
         if (videoCanvas != null) videoCanvas.SetActive(false);
+         if (startingAudio != null) startingAudio.Play();
     }
 
     public void OnClick()
