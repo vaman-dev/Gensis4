@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;
     private Animator animator;
     public float delayTime = 2f; 
-    public float jumpForce = 7f; // Increased for better jumping
-    public float torqueForce = 5f; // Added torque force for mid-air control
+    public float jumpForce = 7f; 
+    public float torqueForce = 5f; 
     private BoxCollider2D feetCollider;
     private bool isAlive = true;
     private SpriteRenderer spriteRenderer;

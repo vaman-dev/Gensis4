@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public class Enemydestroy : MonoBehaviour
+public class EnemyDestroy : MonoBehaviour
 {
-    
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject); // Destroy the enemy
-            Destroy(gameObject); // Destroy the bullet
+            Debug.Log("Enemy dies");
+            Destroy(gameObject); // Destroy the enemy
         }
     }
 }

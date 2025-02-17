@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Gate
   - Enemy
+  - Bullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Enemy
+  - Bullet
   - 
   - 
   - 
