@@ -4,21 +4,22 @@ using TMPro;
 
 public class CoinCollector : MonoBehaviour
 {
-    public TextMeshProUGUI coinText; // Assign in the Inspector
+    public TextMeshProUGUI coinText; 
     private int collectedCoins = 0;
 
     void Start()
     {
         UpdateCoinUI();
+        Debug.Log("Coin counter initialized.");
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Coin")) 
         {
-            Debug.Log("Coin found");
+            Debug.Log("Coin collected!");
             collectedCoins++;
-            Destroy(gameObject);
+            Destroy(other.gameObject); 
             UpdateCoinUI();
         }
     }
