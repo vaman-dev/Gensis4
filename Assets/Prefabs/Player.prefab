@@ -197,7 +197,9 @@ GameObject:
   - component: {fileID: 1788328085822642641}
   - component: {fileID: 3636684877845299500}
   - component: {fileID: 4895188792227997082}
-  - component: {fileID: 5635030892183098522}
+  - component: {fileID: 7600769348649588629}
+  - component: {fileID: 7340186032834366025}
+  - component: {fileID: 2590480135906476833}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -215,7 +217,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4657, y: -1.6809, z: 0}
-  m_LocalScale: {x: 1.6835704, y: 1.3186843, z: 1}
+  m_LocalScale: {x: 1.6835707, y: 1.3186843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1975118313749566380}
@@ -552,7 +554,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5635030892183098522
+--- !u!114 &7600769348649588629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,7 +563,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 8490845328364044007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d0690c7ad14e9949907a0a04f2559c8, type: 3}
+  m_Script: {fileID: 11500000, guid: f168b302cf8597347b8dd92d5f912560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathPanel: {fileID: 0}
+--- !u!114 &7340186032834366025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490845328364044007}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9db0f0ef3cab741a01df293b7fbdab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
+--- !u!114 &2590480135906476833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490845328364044007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586c58754a4c2ff4baf44d202ac392ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

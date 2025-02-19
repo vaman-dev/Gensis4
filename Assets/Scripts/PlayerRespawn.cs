@@ -39,11 +39,8 @@ public class PlayerRespawn : MonoBehaviour
 
     public void Respawn()
     {
-        // Time.timeScale = 1f; // Resume game
-        transform.position = respawnPoint; // Move player to the last checkpoint
-        // if (deathCanvas != null)
-        // {
-        //     deathCanvas.SetActive(false); // Hide death screen
-        // }
+        
+        transform.position = respawnPoint; 
+        }
     }
-}
+
