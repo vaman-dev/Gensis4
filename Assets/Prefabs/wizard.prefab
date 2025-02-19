@@ -67,8 +67,6 @@ GameObject:
   - component: {fileID: 3119501333080949438}
   - component: {fileID: 1658934559702294055}
   - component: {fileID: 6972839742978217222}
-  - component: {fileID: 8648469587670520917}
-  - component: {fileID: 7049065762440966241}
   m_Layer: 0
   m_Name: wizard
   m_TagString: Enemy
@@ -347,30 +345,6 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!114 &6972839742978217222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242687717444462049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7367c738750db942b5c0eecb47377b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8648469587670520917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242687717444462049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7367c738750db942b5c0eecb47377b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7049065762440966241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

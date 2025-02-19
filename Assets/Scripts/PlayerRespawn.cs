@@ -4,15 +4,13 @@ using UnityEngine.SceneManagement;
 public class PlayerRespawn : MonoBehaviour
 {
     private Vector2 respawnPoint; 
-    // public GameObject deathCanvas;
 
     void Start()
     {
         respawnPoint = transform.position; 
-        // if (deathCanvas != null)
-        // {
-        //     deathCanvas.SetActive(false);
-        // }
+        
+        
+         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
