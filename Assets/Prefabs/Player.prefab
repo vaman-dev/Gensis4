@@ -197,9 +197,10 @@ GameObject:
   - component: {fileID: 1788328085822642641}
   - component: {fileID: 3636684877845299500}
   - component: {fileID: 4895188792227997082}
+  - component: {fileID: 5635030892183098522}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +215,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4657, y: -1.6809, z: 0}
-  m_LocalScale: {x: 2.32551, y: 1.9111304, z: 1}
+  m_LocalScale: {x: 1.6835704, y: 1.3186843, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1975118313749566380}
@@ -366,10 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7ac7d6dd4a74b47b70e9e1330ca036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12.5
   delayTime: 2
-  jumpForce: 40
-  torqueForce: 50
+  jumpForce: 25
+  torqueForce: 10
   runAudio: {fileID: 4895188792227997082}
 --- !u!61 &1788328085822642641
 BoxCollider2D:
@@ -381,7 +382,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 07c1b5e4fb3f2b34cb51c6904dcb5627, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -405,7 +406,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.16843091, y: -1.04}
+  m_Offset: {x: -0.1, y: -1.04}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -415,7 +416,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7131381, y: 0.13911772}
+  m_Size: {x: 0.47, y: 0.06}
   m_EdgeRadius: 0
 --- !u!70 &3636684877845299500
 CapsuleCollider2D:
@@ -551,3 +552,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5635030892183098522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490845328364044007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0690c7ad14e9949907a0a04f2559c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPanel: {fileID: 0}

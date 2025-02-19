@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        Debug.Log("Rigidbody found");
     }
 
     void Update()
@@ -44,12 +45,12 @@ public class Bullet : MonoBehaviour
     private void Fire()
     {
         shootAudio.Play();
-        Vector2 direction = facingRight ? Vector2.right : Vector2.left;
+        Vector2 bulletdirection = facingRight ? Vector2.right : Vector2.left;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         
         if (bullet.TryGetComponent(out Rigidbody2D rb))
         {
-            rb.linearVelocity = direction * bulletSpeed;
+            rb.linearVelocity = bulletdirection * bulletSpeed;
         }
 
         Destroy(bullet, destroyTime);

@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5346125524255974843}
-  - component: {fileID: 881375955454791234}
+  - component: {fileID: 3932280658113937527}
   m_Layer: 0
   m_Name: Gun
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 2318423067250441510}
   m_Father: {fileID: 4318805125428596006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &881375955454791234
+--- !u!114 &3932280658113937527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,16 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 322763536801560590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efed6e50b352c046a0cc6a8d6fd1e9e, type: 3}
+  m_Script: {fileID: 11500000, guid: b8412ac4fcbe1a743b53cc6c7460e4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7446434541580658178, guid: 1442e572e3045d44fbf505cc7df7114e, type: 3}
-  firePoint: {fileID: 2318423067250441510}
   player: {fileID: 0}
-  bulletSpeed: 10
-  fireRate: 1
-  destroyTime: 2
-  fireRange: 10
+  playerIsInRegion: 10
+  bulletPrefab: {fileID: 7446434541580658178, guid: 1442e572e3045d44fbf505cc7df7114e, type: 3}
+  firePoint: {fileID: 5346125524255974843}
+  bulletSpeed: 15
+  fireRate: 4
 --- !u!1 &1242687717444462049
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +66,9 @@ GameObject:
   - component: {fileID: 5479528249616112912}
   - component: {fileID: 3119501333080949438}
   - component: {fileID: 1658934559702294055}
+  - component: {fileID: 6972839742978217222}
+  - component: {fileID: 8648469587670520917}
+  - component: {fileID: 7049065762440966241}
   m_Layer: 0
   m_Name: wizard
   m_TagString: Enemy
@@ -84,7 +86,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.3596, y: 4.0771, z: 0}
-  m_LocalScale: {x: 10.572851, y: 11.044472, z: 1.1273}
+  m_LocalScale: {x: 5.3879247, y: 4.3901777, z: 1.1273}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5346125524255974843}
@@ -228,8 +230,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.006889115, y: -0.0016486533}
-  m_Size: {x: 0.18843937, y: 0.3360951}
+  m_Offset: {x: 0, y: -0.0016486533}
+  m_Size: {x: 0.4, y: 0.69}
   m_Direction: 0
 --- !u!114 &3119501333080949438
 MonoBehaviour:
@@ -244,8 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 5
-  detectionRange: 10
+  speed: 20
+  detectionRange: 5
   horrorAudio: {fileID: 1658934559702294055}
 --- !u!82 &1658934559702294055
 AudioSource:
@@ -344,6 +346,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6972839742978217222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242687717444462049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7367c738750db942b5c0eecb47377b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8648469587670520917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242687717444462049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7367c738750db942b5c0eecb47377b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7049065762440966241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242687717444462049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7367c738750db942b5c0eecb47377b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4792895612674108476
 GameObject:
   m_ObjectHideFlags: 0
