@@ -6,13 +6,15 @@ public class PlayerDeath : MonoBehaviour
 {
     public GameObject deathPanel; 
     
-    void Start()
+ void Start()
+{
+    Time.timeScale = 1f;
+    if (deathPanel != null)
     {
-        if (deathPanel != null)
-        {
-            deathPanel.SetActive(false); 
-        }
+        deathPanel.SetActive(false); 
     }
+}
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -23,20 +25,17 @@ public class PlayerDeath : MonoBehaviour
             {
                 deathPanel.SetActive(true); 
                 
-                Time.timeScale = 0f; 
+                 Time.timeScale = 0f; 
                 
-              AudioListener.pause = true;
-                
+                AudioListener.pause = true;
             }
         }
     }
 
-
     public void RestartGame()
-{
-    AudioListener.pause = false; // Unpause sound when restarting
-    Time.timeScale = 1f; // Resume the game
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-}
-
+    {
+        AudioListener.pause = false; // Unpause sound when restarting
+         Time.timeScale = 1f; // Resume the game
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
