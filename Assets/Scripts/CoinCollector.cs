@@ -14,10 +14,11 @@ public class CoinCollector : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Coin found");
             collectedCoins++;
-            Destroy(other.gameObject);
+            Destroy(gameObject);
             UpdateCoinUI();
         }
     }

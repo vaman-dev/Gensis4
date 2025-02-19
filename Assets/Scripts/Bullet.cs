@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;  // Use SerializeField for better encapsulation
+    [SerializeField] private GameObject bulletPrefab;  
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed = 20f;
     [SerializeField] private float fireRate = 0.5f;
@@ -10,13 +10,18 @@ public class Bullet : MonoBehaviour
     
     private float nextFireTime;
     private bool facingRight = true;
-    private Rigidbody2D playerRb;
+    private Rigidbody2D playerRb; 
     public AudioSource shootAudio;
 
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        Debug.Log("Rigidbody found");
+        // Get Rigidbody2D from the player, not the gun
+        playerRb = GetComponentInParent<Rigidbody2D>();
+
+        if (playerRb == null)
+        {
+            Debug.LogError("No Rigidbody2D found in parent! Make sure the player has a Rigidbody2D component.");
+        }
     }
 
     void Update()
@@ -36,24 +41,27 @@ public class Bullet : MonoBehaviour
 
     private void UpdateFacingDirection()
     {
-        if (playerRb.linearVelocity.x > 0)
-            facingRight = true;
-        else if (playerRb.linearVelocity.x < 0)
-            facingRight = false;
+        if (playerRb != null)  // Check if playerRb exists before accessing it
+        {
+            if (playerRb.linearVelocity.x > 0)
+                facingRight = true;
+            else if (playerRb.linearVelocity.x < 0)
+                facingRight = false;
+        }
     }
 
     private void Fire()
     {
-        shootAudio.Play();
-        Vector2 bulletdirection = facingRight ? Vector2.right : Vector2.left;
+        if (shootAudio != null) shootAudio.Play(); 
+
+        Vector2 bulletDirection = facingRight ? Vector2.right : Vector2.left;
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         
         if (bullet.TryGetComponent(out Rigidbody2D rb))
         {
-            rb.linearVelocity = bulletdirection * bulletSpeed;
+            rb.linearVelocity = bulletDirection * bulletSpeed; // Use velocity instead of linearVelocity
         }
 
         Destroy(bullet, destroyTime);
     }
 }
-
