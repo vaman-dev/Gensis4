@@ -13074,7 +13074,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8490845328364044007, guid: f1a725d376a0f1b4fadb6565052ec3cc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1629606310}
+      addedObject: {fileID: 1629606318}
   m_SourcePrefab: {fileID: 100100000, guid: f1a725d376a0f1b4fadb6565052ec3cc, type: 3}
 --- !u!1 &1323797357
 GameObject:
@@ -14397,6 +14397,7 @@ GameObject:
   - component: {fileID: 1614929968}
   - component: {fileID: 1614929971}
   - component: {fileID: 1614929972}
+  - component: {fileID: 1614929973}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14554,6 +14555,18 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &1614929973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614929967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f168b302cf8597347b8dd92d5f912560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617594696
 GameObject:
   m_ObjectHideFlags: 0
@@ -14657,19 +14670,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0690c7ad14e9949907a0a04f2559c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1629606310
+--- !u!114 &1629606318
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532428766}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9db0f0ef3cab741a01df293b7fbdab, type: 3}
+  m_Script: {fileID: 11500000, guid: f168b302cf8597347b8dd92d5f912560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 1760415465}
 --- !u!1 &1644938411
 GameObject:
   m_ObjectHideFlags: 0
@@ -15989,8 +16001,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.4
-  m_fontSizeBase: 41.4
+  m_fontSize: 29.27
+  m_fontSizeBase: 29.27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

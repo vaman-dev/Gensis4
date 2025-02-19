@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        // Get Rigidbody2D from the player, not the gun
+        
         playerRb = GetComponentInParent<Rigidbody2D>();
 
         if (playerRb == null)
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
 
     private void UpdateFacingDirection()
     {
-        if (playerRb != null)  // Check if playerRb exists before accessing it
+        if (playerRb != null)  
         {
             if (playerRb.linearVelocity.x > 0)
                 facingRight = true;
@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
         
         if (bullet.TryGetComponent(out Rigidbody2D rb))
         {
-            rb.linearVelocity = bulletDirection * bulletSpeed; // Use velocity instead of linearVelocity
+            rb.linearVelocity = bulletDirection * bulletSpeed; 
         }
 
         Destroy(bullet, destroyTime);
