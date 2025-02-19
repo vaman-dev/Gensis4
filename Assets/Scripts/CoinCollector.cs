@@ -26,6 +26,6 @@ public class CoinCollector : MonoBehaviour
 
     void UpdateCoinUI()
     {
-        coinText.text = "Coins: " + collectedCoins;
+        coinText.text = "Umbrella: " + collectedCoins;
     }
 }

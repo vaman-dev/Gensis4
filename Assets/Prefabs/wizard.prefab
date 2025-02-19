@@ -50,7 +50,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7446434541580658178, guid: 1442e572e3045d44fbf505cc7df7114e, type: 3}
   firePoint: {fileID: 5346125524255974843}
   bulletSpeed: 15
-  fireRate: 4
+  fireRate: 1
 --- !u!1 &1242687717444462049
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.3596, y: 4.0771, z: 0}
-  m_LocalScale: {x: 5.3879247, y: 4.3901777, z: 1.1273}
+  m_LocalScale: {x: 5.3092613, y: 3.782138, z: 1.1273}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5346125524255974843}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 20
+  speed: 25
   detectionRange: 5
   horrorAudio: {fileID: 1658934559702294055}
 --- !u!82 &1658934559702294055
