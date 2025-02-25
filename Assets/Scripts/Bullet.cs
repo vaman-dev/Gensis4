@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
     {
         if (playerRb != null)  
         {
-            if (playerRb.linearVelocity.x >= 0)
+            if (playerRb.linearVelocity.x >0)
                 facingRight = true;
             else if (playerRb.linearVelocity.x < 0)
                 facingRight = false;

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aacb49a18769e4f4392bc494bb864271
+guid: 32c3f1d256e19c2418ccbe1adaa284ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8885102441172123064
-    second: Splash Screen_0
+      213: 437970980277776787
+    second: MainScreen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Splash Screen_0
+      name: MainScreen_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 842caf0b766c1b480800000000000000
-      internalID: -8885102441172123064
+      spriteID: 391f26d394cf31600800000000000000
+      internalID: 437970980277776787
       vertices: []
       indices: 
       edges: []

@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7ac7d6dd4a74b47b70e9e1330ca036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12.5
+  moveSpeed: 15
   delayTime: 2
   jumpForce: 25
   torqueForce: 10
@@ -406,7 +406,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
+  m_CompositeOperation: 1
   m_CompositeOrder: 0
   m_Offset: {x: -0.1, y: -1.04}
   m_SpriteTilingProperty:
@@ -418,7 +418,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.47, y: 0.06}
+  m_Size: {x: 0.47, y: 0.12}
   m_EdgeRadius: 0
 --- !u!70 &3636684877845299500
 CapsuleCollider2D:
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8490845328364044007}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e9db0f0ef3cab741a01df293b7fbdab, type: 3}
   m_Name: 
